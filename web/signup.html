@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>SignUp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link  rel="stylesheet" type="text/css" href="css/signupcss.css">
+    </head>
+    <body>
+        <nav>
+            <div class="logo">
+                Be-Well
+            </div>
+            <ul class="menu-icons">    
+                <li> <a href="home.html" target="_self" >Home</a></li> 
+                <li> <a href="#i2" > About </a></li>              
+                <li> <a href="findadoctor.html" target="_blank">Find a Doctor</a></li>
+                <li> <a href="login.html" target="_blank" >Login/SignUp</a></li>      
+                <li> <a href="bookappt.html" target="_blank">Book Appointment</a></li>   
+                <li> <a href="feedback.html" target="_blank">Contact Us</a></li>                                   
+            </ul>
+        </nav>
+
+        <form action="signupconnect.jsp" method="post" class="signup">
+            <h2>Sign Up</h2>
+            <input type="text" name="firstname" id="firstname" placeholder="FirstName" required><br>
+            <span id="errorname" style="color: red"></span>
+            
+            <input type="text" name="lastname" placeholder="LastName" required><br>
+
+            <input type="email" name="email" id="email" placeholder="Email" required><br>
+            <span id="erroremail" style="color: red"></span>
+            
+            <input type="number" id="number" name="contactnumber" placeholder="Contact Number" ><br>
+            <span id="errornumber" style="color: red"></span>
+            
+            <label>User Type: </label>
+            <select name="usertype" required>
+                <option>----</option>
+                <option>Admin</option>
+                <option>Doctor</option>
+                <option>Nurse</option>
+                <option>Patient</option>
+            </select><br>
+
+            <label>Gender: </label>
+            <input type="radio" name="gender" value="m" style="width: 20px; height: 15px;margin: 0px;font-size: 5px;"/><label style=";margin: 0px;">Male</label>
+            <input type="radio" name="gender" value="f" style="width: 20px; height: 15px;margin: 0px;font-size: 5px;"/><label style=";margin: 0px;">Female </label><br>
+
+            <input type="text" name="address" placeholder="Address" ><br>
+
+            <input type="password" name="password" id="password" placeholder="Password" required><br>
+            <span id="errorpassword" style="color: red"></span>
+            <input type="submit" value="Signup">
+        </form>
+
+        <footer>
+            <ul class="social-icons">
+                <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="#">Home |</a></li>
+                <li><a href="#">About |</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <p>@2022 Be-Well Management system | All Rights Reserved</p>
+        </footer>
+        <!-- footer section ends  -->
+
+        <script type="text/javascript">
+            function validation() {
+                var firstname = document.getElementById('firstname').value;
+                var email = document.getElementById('email').value;
+                var number = document.getElementById('contactnumber').value;
+                var password = document.getElementById('password').value;
+
+                var usercheck = /^[A-Za-z]$/;
+                var emailcheck = /^[A-Za-z_0-9@.]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
+                var numbercheck = /^[6789][0-9]{9}$/;
+                var passwordcheck = /^[A-Za-z][0-9]$/;
+
+                if (usercheck.test(firstname)) {
+                    document.getElementById('errorname').innerHTML = " ";
+                } else {
+                    document.getElementById('errorname').innerHTML = "Please include Upper and lower Case both";
+                    return false;
+                }
+
+                if (emailcheck.test(email)) {
+                    document.getElementById('erroremail').innerHTML = " ";
+                } else {
+                    document.getElementById('erroremail').innerHTML = "Invalid Email";
+                }
+
+                if (numbercheck.test(number)) {
+                    document.getElementById('errornumber').innerHTML = " ";
+                } else {
+                    document.getElementById('errornumber').innerHTML = "Invalid mobile number";
+                }
+                
+                if (passwordcheck.test(password)) {
+                    document.getElementById('errorpassword').innerHTML = " ";
+                } else {
+                    document.getElementById('errorpassword').innerHTML = "Invalid mobile number";
+                }
+            }
+        </script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script>
+        var slideImg = document.getElementById("slideImg");
+        var images = new Array(
+                "images/slider/1.jpg",
+                "images/slider/5.jpg"
+                );
+        var len = images.length;
+        var i = 0;
+        function slider() {
+            if (i > len - 1) {
+                i = 0;
+            }
+            slideImg.src = images[i];
+            i++;
+            setTimeout('slider()', 3000);
+        }
+
+
+        </script>
+    </body>
+</html>
